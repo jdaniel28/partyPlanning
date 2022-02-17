@@ -9,7 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { appRoutes } from 'src/app/routerConfig';
 import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 
@@ -25,7 +25,8 @@ import { LoginComponent } from './login/login.component';
     RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
