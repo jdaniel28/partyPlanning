@@ -4,6 +4,7 @@ import { User } from '../Types/User';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Answer } from '../Types/Answer';
+import { UtilService } from '../Services/util.service';
 
 @Component({
   selector: 'app-login',
@@ -35,9 +36,13 @@ export class LoginComponent implements OnInit {
     gender: '',
     contactNumber: '',
     userId: '',
-    password: ''
+    password: '',
+    ans1: '',
+    ans2: '',
+    ans3: '',
+    photo: null
   }
-  constructor(private restService: RestService, private modalService: NgbModal) {
+  constructor(private restService: RestService, private utilService: UtilService, private modalService: NgbModal) {
     //this.showModal = false;
   }
 
@@ -67,14 +72,17 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit() {
+    console.log("here")
     this.restService.login(this.user).subscribe(data => {
-      if (data.status == 200) {
-        alert("Logged In")
-      }
+      // console.log(data.role)
+      alert("Logged In")
+      document.cookie = "userId=" + this.user.userId;
+      document.cookie = "role=" + data.role;
+      window.location.href = "/signUp"
     }, error => {
-      if (error.status == 400) {
+      if (error.error.role == "Password") {
         alert("Password is incorrect")
-      } else if (error.status == 404) {
+      } else if (error.error.role == "UserId") {
         alert("UserId not found")
       }
     })
@@ -101,8 +109,14 @@ export class LoginComponent implements OnInit {
     }
     else {
       //Submit to server
-      console.log("Here")
-      alert("Changed successfully")
+      this.restService.changePassword(this.forgotUserID.userId, this.resetPassword.password).subscribe(val => {
+        if (val.status == 201) {
+          alert("Changed successfully")
+        }
+      }, error => {
+        alert(error.status)
+      })
+
     }
   }
 

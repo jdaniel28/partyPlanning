@@ -17,7 +17,11 @@ export class SignUpComponent implements OnInit {
     gender: '',
     contactNumber: '',
     userId: '',
-    password: ''
+    password: '',
+    ans1: '',
+    ans2: '',
+    ans3: '',
+    photo: null
   }
 
   constructor(private restService: RestService) { }

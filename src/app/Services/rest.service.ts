@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Answer } from '../Types/Answer';
+import { Response } from '../Types/Response';
 import { User } from '../Types/User';
 
 @Injectable({
@@ -13,8 +14,8 @@ export class RestService {
 
   root_url = "http://localhost:9090/";
 
-  getUser() {
-    return this.http.get<User>(this.root_url + "User");
+  getUser(userId: string) {
+    return this.http.get<User>(this.root_url + "User/" + userId);
   }
 
   postUser(user: User) {
@@ -30,7 +31,7 @@ export class RestService {
       password: user.password
     }
     const body = JSON.stringify(request);
-    return this.http.put<any>(this.root_url + "login", body, { 'headers': headers, 'observe': 'response' });
+    return this.http.post<Response>(this.root_url + "login", body, { 'headers': headers });
   }
 
   getUserIdForgotUserID(answers: Answer) {
@@ -49,5 +50,26 @@ export class RestService {
     const body = JSON.stringify(answers)
     return this.http.put<any>(this.root_url + "forgotPassword", body, { 'headers': headers, 'observe': 'response' });
   }
+
+  changePassword(userId: string, password: string) {
+    const headers = { 'content-type': 'application/json' }
+    var request = {
+      userId: userId,
+      password: password
+    }
+    const body = JSON.stringify(request);
+    return this.http.put<any>(this.root_url + "UserPassword", body, { 'headers': headers, 'observe': 'response' });
+  }
+
+  uploadPhoto(user: User) {
+    const headers = { 'content-type': 'application/json' }
+    var request = {
+      userId: user.userId,
+      photo: user.photo
+    }
+    const body = JSON.stringify(request);
+    return this.http.put<any>(this.root_url + "uploadPhoto", request, { 'headers': headers, 'observe': 'response' })
+  }
+
 
 }

@@ -1,24 +1,54 @@
 <div class="container-fluid" style="background-color:#353a40;">
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a href="#" class="navbar-brand" id="navLi">Party Planning Management</a>
+        <a href="#" class="navbar-brand" id="navLi">Party Planning Management 🎉</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" (click)="isShown = !isShown"
             data-bs-target="#navbarNav" aria-expanded="false" aria-controls="navbarNav"><span
                 class="navbar-toggler-icon"></span></button>
 
         <div class="navbar-collapse collapse flex-row-reverse" [ngClass]="{ 'show': isShown }" id="navbarNav">
             <ul class="navbar-nav ">
-                <li style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Feedback</a>
+
+                <li *ngIf="!isLoggedIn" style="color:white;" class="nav-item">
+                    <a routerLink="signUp" (click)="isShown = false" class="nav-link">Sign Up</a>
                 </li>
-                <li style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Booking</a>
-                </li>
-                <li style="color:white;" class="nav-item">
-                    <a routerLink="signUp" (click)="isShown = false" class="nav-link">SignUp</a>
-                </li>
-                <li style="color:white;" class="nav-item">
+                <li *ngIf="!isLoggedIn" style="color:white;" class="nav-item">
                     <a routerLink="login" (click)="isShown = false" class="nav-link">Login</a>
                 </li>
+
+
+
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a (click)="isShown = false" class="nav-link">Add Venue</a>
+                </li>
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a (click)="isShown = false" class="nav-link">Add Feedback</a>
+                </li>
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a (click)="isShown = false" class="nav-link">View Booking</a>
+                </li>
+
+
+
+
+                <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
+                    <a (click)="isShown = false" class="nav-link">Feedback</a>
+                </li>
+                <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
+                    <a (click)="isShown = false" class="nav-link">Booking</a>
+                </li>
+                <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
+                    <a routerLink="profile" (click)="isShown = false" class="nav-link">Profile</a>
+                </li>
+
+
+
+
+
+
+                <li *ngIf="isLoggedIn" style="color:white;" class="nav-item">
+                    <a (click)="isShown = false;  onLogOut()" href="javascript:void(0);" class="nav-link">Logout</a>
+                </li>
+
             </ul>
         </div>
     </nav>

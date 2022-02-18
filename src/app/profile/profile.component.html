@@ -4,10 +4,15 @@
             <div class="col-12 col-lg-9 col-xl-7">
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
-                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Sign Up</h3>
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Edit Profile</h3>
                         <form #f="ngForm" (ngSubmit)="f.form.valid && onFormSubmit()">
 
                             <div class="row">
+                                <div class="col-md-12 mb-4 pb-2">
+                                    <img [src]="user.photo">
+                                    <input id="photo" type="file" (change)="onFileChanged($event)">
+                                    <button class="btn btn-secondary" (click)="onPhotoUpload()">Upload</button>
+                                </div>
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
@@ -82,19 +87,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
 
-                                    <div class="form-outline">
-                                        <label class="form-label" for="userId">User ID</label>
-                                        <span class="redStar">*</span>
-                                        <input name="userId" [(ngModel)]="user.userId" type="text" id="userId"
-                                            class="form-control form-control-lg" required />
-                                        <div [hidden]="user.userId !=''" class="alert alert-danger">
-                                            UserID is required
-                                        </div>
-                                    </div>
-
-                                </div>
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline">
@@ -110,72 +103,12 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
 
-                                    <div class="form-outline">
-                                        <label class="form-label" for="password">Password</label>
-                                        <span class="redStar">*</span>
-                                        <input name="password" [(ngModel)]="user.password" type="password" id="password"
-                                            class="form-control form-control-lg" required />
-                                        <div [hidden]="user.password !=''" class="alert alert-danger">
-                                            Password is required
-                                        </div>
-                                    </div>
 
-                                </div>
-                                <div class="col-md-6 mb-4 pb-2">
-
-                                    <div class="form-outline">
-                                        <label class="form-label" for="confirmPassword">Confirm Password</label>
-                                        <span class="redStar">*</span>
-                                        <input type="password" name="confirmPassword" id="confirmPassword"
-                                            class="form-control form-control-lg" [(ngModel)]="confirmPassword"
-                                            required />
-                                        <div [hidden]="confirmPassword !=''" class="alert alert-danger">
-                                            Confirm Password is required
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-12 mb-4 pb-2">
-
-                                    <div class="col-lg-12">
-                                        <label class="form-label">What is your nickname?<span
-                                                class="redStar">*</span></label>
-                                        <input name="ans1" required [(ngModel)]="user.ans1" type="text"
-                                            class="form-control">
-                                        <div [hidden]="user.ans1 !=''" class="alert alert-danger">
-                                            Answer is required
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <label class="form-label">What is your favourite colour?<span
-                                                class="redStar">*</span></label>
-                                        <input name="ans2" required [(ngModel)]="user.ans2" type="text"
-                                            class="form-control">
-                                        <div [hidden]="user.ans2 !=''" class="alert alert-danger">
-                                            Answer is required
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <label class="form-label">Who is your favourite actor/actress?<span
-                                                class="redStar">*</span></label>
-                                        <input name="ans3" required [(ngModel)]="user.ans3" type="text"
-                                            class="form-control">
-                                        <div [hidden]="user.ans3 !=''" class="alert alert-danger">
-                                            Answer is required
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
 
 
                             <div class="mt-4 pt-2">
-                                <input class="btn btn-primary btn-lg" type="submit" value="Submit"
-                                    [disabled]="user.password != confirmPassword" />
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
                             </div>
                         </form>
                     </div>
