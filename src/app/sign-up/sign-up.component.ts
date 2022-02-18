@@ -21,7 +21,7 @@ export class SignUpComponent implements OnInit {
     ans1: '',
     ans2: '',
     ans3: '',
-    photo: null
+    photoName: ''
   }
 
   constructor(private restService: RestService) { }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Answer } from '../Types/Answer';
 import { Response } from '../Types/Response';
 import { User } from '../Types/User';
+import { Venue } from '../Types/Venue';
 
 @Injectable({
   providedIn: 'root'
@@ -61,15 +62,34 @@ export class RestService {
     return this.http.put<any>(this.root_url + "UserPassword", body, { 'headers': headers, 'observe': 'response' });
   }
 
-  uploadPhoto(user: User) {
+  uploadPhoto(formData: FormData) {
+    const headers = { 'content-type': 'application/json' }
+    // var request = {
+    //   userId: user.userId,
+    //   photo: user.photo
+    // }
+    //const body = JSON.stringify(request);
+    return this.http.put<any>(this.root_url + "uploadPhoto", formData, { 'observe': 'response' })
+  }
+
+  postVenue(venue: Venue) {
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(venue);
+    return this.http.post<Venue>(this.root_url + "Venue", body, { 'headers': headers, 'observe': 'response' });
+  }
+
+  updateUser(user: User) {
     const headers = { 'content-type': 'application/json' }
     var request = {
       userId: user.userId,
-      photo: user.photo
+      firstName: user.firstName,
+      lastName: user.lastName,
+      dob: user.dob,
+      gender: user.gender,
+      contactNumber: user.contactNumber
     }
     const body = JSON.stringify(request);
-    return this.http.put<any>(this.root_url + "uploadPhoto", request, { 'headers': headers, 'observe': 'response' })
+    return this.http.put<any>(this.root_url + "updateUser", body, { 'headers': headers, 'observe': 'response' });
   }
-
 
 }

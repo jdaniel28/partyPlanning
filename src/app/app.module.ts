@@ -12,6 +12,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { VenueComponent } from './venue/venue.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
     MenuComponent,
     SignUpComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    VenueComponent
   ],
   imports: [
     BrowserModule,

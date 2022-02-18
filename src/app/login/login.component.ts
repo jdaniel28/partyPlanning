@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     ans1: '',
     ans2: '',
     ans3: '',
-    photo: null
+    photoName: ''
   }
   constructor(private restService: RestService, private utilService: UtilService, private modalService: NgbModal) {
     //this.showModal = false;

@@ -18,7 +18,7 @@
 
 
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Add Venue</a>
+                    <a routerLink="venue" (click)="isShown = false" class="nav-link">Add Venue</a>
                 </li>
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
                     <a (click)="isShown = false" class="nav-link">Add Feedback</a>

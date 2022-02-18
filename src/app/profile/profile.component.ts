@@ -10,6 +10,9 @@ import { User } from '../Types/User';
 })
 export class ProfileComponent implements OnInit {
   selectedFile !: any;
+  isPhotoUpdated = false;
+
+  updatedPhoto: any;
 
   userId !: string;
 
@@ -24,7 +27,7 @@ export class ProfileComponent implements OnInit {
     ans1: '',
     ans2: '',
     ans3: '',
-    photo: null
+    photoName: ''
   }
   retrievedImage !: any
 
@@ -39,45 +42,29 @@ export class ProfileComponent implements OnInit {
     this.userId = this.utilService.readUserId();
     this.restService.getUser(this.userId).subscribe(data => {
       this.user = data;
-      this.user.dob
-      console.log(data.dob);
-      var photoTemp = data.photo.picByte;
-      this.user.photo = 'data:image/jpeg;base64,' + photoTemp;
+      console.log(this.user.photoName.length)
+      if (this.user.photoName.length < 55) {
+        this.user.photoName = "../../assets/blank_profile.png";
+      }
     })
   }
 
   onFormSubmit() {
-
+    this.restService.updateUser(this.user).subscribe(data => {
+      alert("Updated!")
+    }, error => {
+      alert("Error!")
+    })
   }
 
-
-
   onPhotoUpload() {
-    console.log(this.selectedFile);
-    var reader = new FileReader();
-    console.log(document.getElementById("photo"))
-    reader.readAsDataURL(this.selectedFile)
     const uploadImageData = new FormData();
-    uploadImageData.append('photo', this.selectedFile);
+    uploadImageData.append('photo', this.selectedFile, this.selectedFile.name);
     uploadImageData.append('userId', this.userId);
-    const fileByteArray: any = [];
-    reader.readAsArrayBuffer(this.selectedFile);
-    reader.onloadend = (evt) => {
-      if (evt.target.readyState === FileReader.DONE) {
-        const arrayBuffer = evt.target.result,
-          array = new Uint8Array(arrayBuffer);
-        for (const a of array) {
-          fileByteArray.push(a);
-        }
-        console.log(fileByteArray)
-      }
-    }
-    this.user.photo = this.selectedFile;
-    console.log(this.user.photo)
-    this.restService.uploadPhoto(this.user).subscribe(data => {
-      alert(data.status)
+
+    this.restService.uploadPhoto(uploadImageData).subscribe(data => {
+      location.reload();
     })
-    //console.log(uploadImageData);
   }
 
 }
