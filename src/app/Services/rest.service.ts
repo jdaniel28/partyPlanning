@@ -43,7 +43,7 @@ export class RestService {
       ans3: answers.ans3
     }
     const body = JSON.stringify(request)
-    return this.http.put<Answer>(this.root_url + "Password", body, { 'headers': headers });
+    return this.http.put<Answer>(this.root_url + "forgotUserId", body, { 'headers': headers });
   }
 
   forgotPassword(answers: Answer) {
@@ -72,11 +72,6 @@ export class RestService {
     return this.http.put<any>(this.root_url + "uploadPhoto", formData, { 'observe': 'response' })
   }
 
-  postVenue(venue: Venue) {
-    const headers = { 'content-type': 'application/json' }
-    const body = JSON.stringify(venue);
-    return this.http.post<Venue>(this.root_url + "Venue", body, { 'headers': headers, 'observe': 'response' });
-  }
 
   updateUser(user: User) {
     const headers = { 'content-type': 'application/json' }
