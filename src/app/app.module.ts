@@ -14,6 +14,11 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { VenueComponent } from './venue/venue.component';
 import { VenueDisplayComponent } from './venue-display/venue-display.component';
+import { PopperDirective } from './popper.directive';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { DisplayScheduleComponent } from './display-schedule/display-schedule.component';
+import { UserScheduleComponent } from './user-schedule/user-schedule.component';
+import { ApproveBookingComponent } from './approve-booking/approve-booking.component';
 
 
 @NgModule({
@@ -24,7 +29,12 @@ import { VenueDisplayComponent } from './venue-display/venue-display.component';
     LoginComponent,
     ProfileComponent,
     VenueComponent,
-    VenueDisplayComponent
+    VenueDisplayComponent,
+    PopperDirective,
+    ScheduleComponent,
+    DisplayScheduleComponent,
+    UserScheduleComponent,
+    ApproveBookingComponent
   ],
   imports: [
     BrowserModule,

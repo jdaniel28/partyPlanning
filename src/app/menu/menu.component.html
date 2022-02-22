@@ -29,6 +29,15 @@
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
                     <a (click)="isShown = false" class="nav-link">View Booking</a>
                 </li>
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a routerLink="displaySchedule" (click)="isShown = false" class="nav-link">View Schedule</a>
+                </li>
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a routerLink="addSchedule" (click)="isShown = false" class="nav-link">Add Schedule</a>
+                </li>
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a routerLink="approveBooking" (click)="isShown = false" class="nav-link">Approve Booking</a>
+                </li>
 
 
 
@@ -42,7 +51,9 @@
                 <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="profile" (click)="isShown = false" class="nav-link">Profile</a>
                 </li>
-
+                <li routerLink="userSchedule" *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
+                    <a (click)="isShown = false" class="nav-link">View Schedules</a>
+                </li>
 
 
 

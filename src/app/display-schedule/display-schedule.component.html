@@ -1,0 +1,55 @@
+
+<body class="colour">
+<section class="vh-500 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-10"> 
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px; width: 950px;align-content: center;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Schedule</h3>
+                        <hr>
+                        <div class="container">
+                            <table class="table table-hover table-success table-striped">
+                                
+                                <thead class="thead-dark">
+                                 
+                                    <tr scope="row">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Venue Id</th>
+                                        <th scope="col">Schedule Id</th>
+                                        <th scope="col">Start Date</th>
+                                        <th scope="col">End Date</th>
+                                        <th scope="col">Facilities Available</th>
+                                        <th scope="col">Max Capacity</th>
+                                        <th scope="col">Price</th>
+
+                                    </tr>
+                                </thead>
+                            
+                                <tr scope="row" *ngFor="let schedule of schedule;let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{ schedule.venueId }}</td>
+                                    <td>{{ schedule.scheduleId }}</td>
+                                    <td>{{ schedule.startDate }}</td>
+                                    <td>{{ schedule.endDate }}</td>
+                                    <td>{{ schedule.facilities }}</td>
+                                    <td>{{ schedule.maxCapacity }}</td>
+                                    <td> &#8377; {{ schedule.price }}</td>
+                                </tr>
+                            
+                            </table>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br>
+</section>
+
+
+</body>

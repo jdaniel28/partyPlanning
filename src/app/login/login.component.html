@@ -16,9 +16,11 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="firstName" required>User ID</label>
                                             <span class="redStar">*</span>
-                                            <input type="text" name="userId" id="userId" [(ngModel)]="user.userId"
+                                            <input type="text" name="userId" id="userId" #userId="ngModel"
+                                                [(ngModel)]="user.userId"
                                                 class="form-control ng-invalid form-control-lg" required />
-                                            <div [hidden]="user.userId !=''" class="alert alert-danger">
+                                            <div *ngIf="userId.invalid && f.submitted" [hidden]="user.userId !=''"
+                                                class="alert alert-danger">
                                                 User ID is required
                                             </div>
                                         </div>
