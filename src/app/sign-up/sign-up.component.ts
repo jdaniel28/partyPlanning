@@ -35,6 +35,7 @@ export class SignUpComponent implements OnInit {
       data = data;
       if (data.status === 201) {
         alert("New user created successfully")
+        window.location.href = "/login"
       }
     });
   }

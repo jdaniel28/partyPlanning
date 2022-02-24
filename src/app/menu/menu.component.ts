@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
 
-    var role = this.utilService.readCookie();
+    var role = this.utilService.readLocalStorageRole();
     if (role == 'admin') {
       this.isLoggedIn = true;
       this.isAdmin = true;
@@ -31,10 +31,12 @@ export class MenuComponent implements OnInit {
   }
 
   onLogOut() {
-    var cookie = document.cookie;
-    var cookieVal = cookie.split(";")
-    document.cookie = cookieVal[0] + ";expires=Thu, 18 Dec 2013 12:00:00 UTC";
-    document.cookie = cookieVal[1] + ";expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    // var cookie = document.cookie;
+    // var cookieVal = cookie.split(";")
+    // document.cookie = cookieVal[0] + ";expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    // document.cookie = cookieVal[1] + ";expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    localStorage.removeItem('partyUser')
+    localStorage.removeItem('partyRole')
     window.location.href = "/login"
   }
 

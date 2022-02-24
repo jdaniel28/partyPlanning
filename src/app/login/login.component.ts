@@ -76,8 +76,8 @@ export class LoginComponent implements OnInit {
     this.restService.login(this.user).subscribe(data => {
       // console.log(data.role)
       alert("Logged In")
-      document.cookie = "userId=" + this.user.userId;
-      document.cookie = "role=" + data.role;
+      localStorage.setItem('partyUser', this.user.userId)
+      localStorage.setItem('partyRole', data.role)
       window.location.href = "/signUp"
     }, error => {
       if (error.error.role == "Password") {

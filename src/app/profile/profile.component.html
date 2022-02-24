@@ -7,17 +7,18 @@
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Edit Profile</h3>
                         <form #f="ngForm">
 
+                            <form [formGroup]="myForm">
+                                <div class="d-flex justify-content-center">
+                                    <img [src]="user.photoName" id="photo" alt="Avatar" class="avatar">
+                                </div>
+                                <br />
 
-                            <div class="d-flex justify-content-center">
-                                <img [src]="user.photoName" alt="Avatar" class="avatar">
-                            </div>
-                            <br />
 
+                                <div class="d-flex justify-content-center col-md-12 mb-4 pb-2 justify-content-center ">
+                                    <input accept="image/*" type="file" (change)="onFileChanged($event)">
+                                </div>
+                            </form>
 
-                            <div class="col-md-12 mb-4 pb-2 justify-content-center ">
-                                <input type="file" (change)="onFileChanged($event)">
-                                <button class="btn btn-secondary" (click)="onPhotoUpload()">Update Photo</button>
-                            </div>
 
 
 

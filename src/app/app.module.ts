@@ -19,6 +19,13 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { DisplayScheduleComponent } from './display-schedule/display-schedule.component';
 import { UserScheduleComponent } from './user-schedule/user-schedule.component';
 import { ApproveBookingComponent } from './approve-booking/approve-booking.component';
+import { CreateInviteComponent } from './create-invite/create-invite.component';
+import { UserInviteComponent } from './user-invite/user-invite.component';
+import { ReviewComponent } from './review/review.component';
+import { DiaplayUsercontactlistComponent } from './diaplay-usercontactlist/diaplay-usercontactlist.component';
+import { UserContactlistComponent } from './user-contactlist/user-contactlist.component';
+import { HelpComponent } from './help/help.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,7 +41,13 @@ import { ApproveBookingComponent } from './approve-booking/approve-booking.compo
     ScheduleComponent,
     DisplayScheduleComponent,
     UserScheduleComponent,
-    ApproveBookingComponent
+    ApproveBookingComponent,
+    CreateInviteComponent,
+    UserInviteComponent,
+    ReviewComponent,
+    DiaplayUsercontactlistComponent,
+    UserContactlistComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +55,8 @@ import { ApproveBookingComponent } from './approve-booking/approve-booking.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

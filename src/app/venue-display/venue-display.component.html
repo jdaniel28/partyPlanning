@@ -4,9 +4,9 @@
             <div class="col-12 col-lg-9 col-xl-7">
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
-                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Venue</h3>
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Venues</h3>
                         <hr>
-                        <button>Add Venue</button>
+
                         <div class="container">
                             <table class="table table-hover table-success table-striped">
                                 <thead class="thead-dark">
@@ -15,7 +15,7 @@
                                         <th scope="col">Venue Id</th>
                                         <th scope="col">Venue Name</th>
                                         <th scope="col">Venue Type</th>
-                                        <th *ngIf="showMoreDetails" scope="col">Venue Description</th>
+                                        <th scope="col">Venue Description</th>
                                     </tr>
                                 </thead>
                                 <tr scope="row" *ngFor="let venue of venue;let i = index">
@@ -23,30 +23,18 @@
                                     <td>{{ venue.venueId }}</td>
                                     <td>{{ venue.venueName }}</td>
                                     <td>{{ venue.venueType }}</td>
-                                    <td> </td>
+                                    <td> {{venue.venueDescription}}</td>
 
                                 </tr>
                             </table>
-                            <p>
-                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseExample" aria-expanded="false"
-                                    aria-controls="collapseExample">
-                                    Button with data-bs-target
-                                </button>
-                            </p>
-                            <div class="collapse" id="collapseExample">
-                                <div class="card card-body">
-                                    Some placeholder content for the collapse component. This panel is hidden by default
-                                    but revealed when the user activates the relevant trigger.
-                                </div>
-                            </div>
+
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
 </section>

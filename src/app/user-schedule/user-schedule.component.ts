@@ -21,7 +21,6 @@ export class UserScheduleComponent implements OnInit {
   booking: Booking = {
     inviteId: '',
     bookingId: 0,
-    numSeats: 0,
     scheduleId: '',
     userId: ''
   }
@@ -30,8 +29,10 @@ export class UserScheduleComponent implements OnInit {
     private utilService: UtilService) { }
 
   ngOnInit(): void {
+
     this.scheduleService.getAllVenueSchedules().subscribe(data => {
       this.venueSchedules = data;
+      console.log(this.venueSchedules)
     })
   }
 
@@ -58,7 +59,7 @@ export class UserScheduleComponent implements OnInit {
 
   onBook(index: number) {
     this.booking.scheduleId = this.venueSchedules[index].scheduleId;
-    this.booking.userId = this.utilService.readUserId();
+    this.booking.userId = this.utilService.readLocalStorageUserId() as string;
     this.bookingService.bookSchedule(this.booking).subscribe(data => {
       alert("Booked! Thank you 😊")
     }, error => {

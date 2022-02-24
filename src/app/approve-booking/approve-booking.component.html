@@ -18,7 +18,6 @@
                                             <th scope="col">Booking Id</th>
                                             <th scope="col">User Id</th>
                                             <th scope="col">Schedule Id</th>
-                                            <th scope="col">Number of Tickets</th>
                                         </tr>
                                     </thead>
 
@@ -27,7 +26,6 @@
                                         <td>{{ booking.bookingId }}</td>
                                         <td>{{ booking.userId }}</td>
                                         <td>{{ booking.scheduleId }}</td>
-                                        <td>{{ booking.numSeats }}</td>
                                         <td>
 
                                             <button class="btn btn-lg btn-outline-primary" (click)="onApprove(i)">

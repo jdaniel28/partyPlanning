@@ -20,22 +20,8 @@
                                         <input accept="image/*" type="file" (change)="onFileChanged($event)">
                                     </div>
                                 </form>
-                                <div class="col-md-6 mb-4">
 
-                                    <div class="form-outline">
-                                        <label class="form-label" for="venueId" required>Venue ID</label>
-                                        <span class="redStar">*</span>
-                                        <input #venueId="ngModel" type="text" name="venueId" id="venueId"
-                                            [(ngModel)]="venue.venueId" class="form-control ng-invalid form-control-lg"
-                                            required>
-                                        <div *ngIf="venueId.touched" [hidden]="venue.venueId !=''"
-                                            class="alert alert-danger">
-                                            Venue Id is required
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-6 mb-4 pb-2">
+                                <div class="col-md-12 mb-4 pb-2">
 
                                     <div class="form-outline">
                                         <label class="form-label" for="venueType">Venue Type</label>

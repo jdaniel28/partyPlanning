@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../Services/rest.service';
 import { ScheduleService } from '../Services/schedule.service';
+import { VenueService } from '../Services/venue.service';
 
 
 import { Schedule } from '../Types/Schedule';
+import { Venue } from '../Types/Venue';
 
 @Component({
   selector: 'app-schedule',
@@ -23,9 +25,14 @@ export class ScheduleComponent implements OnInit {
 
   }
 
-  constructor(private scheduleService: ScheduleService) { }
+  venues: Venue[] = [];
+
+  constructor(private scheduleService: ScheduleService, private venueService: VenueService) { }
 
   ngOnInit(): void {
+    this.venueService.getAllVenues().subscribe(data => {
+      this.venues = data;
+    })
   }
 
   onFormVenueSubmit() {

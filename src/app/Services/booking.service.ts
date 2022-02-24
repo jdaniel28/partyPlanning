@@ -15,8 +15,7 @@ export class BookingService {
     const headers = { 'content-type': 'application/json' }
     const request = {
       userId: booking.userId,
-      scheduleId: booking.scheduleId,
-      numSeats: booking.numSeats
+      scheduleId: booking.scheduleId
     }
     const body = JSON.stringify(request);
     return this.http.post<Booking>(this.root_url + "addBooking", body, { 'headers': headers, 'observe': 'response' });

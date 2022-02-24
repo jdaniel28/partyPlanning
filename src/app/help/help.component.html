@@ -1,0 +1,118 @@
+<div class="faq_area section_padding_130" id="faq">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-lg-6">
+                <!-- Section Heading-->
+                <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s"
+                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                    <h3><span>Help </span> Desk</h3>
+                    <p>You enjoy your party !! We will take care of everything</p>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- FAQ Area-->
+            <div class="col-12 col-sm-10 col-lg-8">
+                <div class="accordion faq-accordian" id="faqAccordion">
+                    <div class="card border-0 wow fadeInUp" data-wow-delay="0.2s"
+                        style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="card-header" id="headingOne">
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne" (click)="collapse1.toggle()"
+                                [attr.aria-expanded]="gfgone">Basic Details<span class="lni-chevron-up"></span></h6>
+                        </div>
+                        <div class="collapse" id="collapseOne" aria-labelledby="headingOne" data-parent="#faqAccordion"
+                            #collapse1="ngbCollapse" [(ngbCollapse)]="!gfgone">
+                            <div class="card-body">
+                                <p>Welcome to party managemnet application.</p>
+                                <p>Here you can do a lot of stuff easily which can save you a lot of time: </p>
+                                <ul>
+                                    <li>You can visit view pages to check all the available Venue and on clicking on
+                                        more info you can get the detailed description of the Venue </li>
+                                    <li>You can book the preffered venue for the desired date and place </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 wow fadeInUp" data-wow-delay="0.3s"
+                        style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <div class="card-header" id="headingTwo">
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="true" aria-controls="collapseTwo" (click)="collapse2.toggle()"
+                                [attr.aria-expanded]="gfgtwo">Send us an email !!<span class="lni-chevron-up"></span>
+                            </h6>
+                        </div>
+                        <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#faqAccordion"
+                            #collapse2="ngbCollapse" [(ngbCollapse)]="!gfgtwo">
+                            <form>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-6" style="padding-left: 15px;">
+
+                                        <label for="inputEmail4"> &nbsp; Email Id</label>
+                                        <br>
+
+                                        <input type="email" class="form-control" id="inputEmail4"
+                                            placeholder="Email Id">
+
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group col-md-8" style="padding-left: 15px;">
+
+                                        <label for="inputPassword4">&nbsp; Issue</label>
+
+                                        <input type="text" class="form-control" id="inputPassword4"
+                                            placeholder="Share your issue">
+
+                                    </div>
+
+                                </div>
+                                <br>
+                                <div class="form-group col-md-10" style="padding-left: 15px;"><label
+                                        for="exampleFormControlTextarea1">&nbsp; Description</label>
+
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+
+                                </div>
+
+                                <br>
+
+                                <div style="padding-left: 15px;">
+
+                                    <button type="submit" class="btn btn-outline-primary">Send email &#9993;</button>
+
+                                </div>
+                                <br>
+
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                    <div class="card border-0 wow fadeInUp" data-wow-delay="0.4s"
+                        style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <div class="card-header" id="headingThree">
+                            <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="true" aria-controls="collapseThree" (click)="collapse3.toggle()"
+                                [attr.aria-expanded]="gfgthree">Contact Us<span class="lni-chevron-up"></span></h6>
+                        </div>
+                        <div class="collapse" id="collapseThree" aria-labelledby="headingThree"
+                            data-parent="#faqAccordion" #collapse3="ngbCollapse" [(ngbCollapse)]="!gfgthree">
+                            <div class="card-body">
+                                <p>For any help and business related queries please free feel to contact us:</p>
+                                <p>&phone; 9898976545</p>
+                                <p>&phone; 9678765433</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

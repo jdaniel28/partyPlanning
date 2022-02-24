@@ -10,7 +10,7 @@ import { Venue } from '../Types/Venue';
 })
 export class VenueDisplayComponent implements OnInit {
 
-  showMoreDetails = true;
+
   venue: Venue[] = [];
   constructor(private venueService: VenueService) { }
 

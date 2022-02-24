@@ -1,0 +1,64 @@
+<section class="vh-50 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add User Contact</h3>
+                        <form #f="ngForm" (ngSubmit)="f.form.valid && onFormSubmit()">
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="Name" required> Name<span class="redStar">*</span>   </label>                                    
+                                        <input type="text" pattern="[a-zA-Z ]*" name="Name" id="Name" [(ngModel)]="usercontact.name" class="form-control ng-invalid form-control-lg"  required  />                                    
+                                        <div [hidden]="usercontact.name !=''" class="alert alert-danger">
+                                            Name is required</div> 
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="phoneNumber">Contact
+                                            Number<span class="redStar">*</span></label>
+                                        <input name="contactNumber" pattern="[0-9]*"
+                                            [(ngModel)]="usercontact.contactNumber" type="tel" id="phoneNumber"
+                                            class="form-control form-control-lg"
+                                             required  />                                
+                                        <div [hidden]="usercontact.contactNumber !=''" class="alert alert-danger">
+                                            Contact Number is required</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 mb-4 pb-2">
+
+                                    <div class="form-outline">
+
+                                        <label class="form-label" for="email" required>Email<span class="redStar">*</span>   </label>                                    
+                                        <input type="email" name="email" id="email" [(ngModel)]="usercontact.email" class="form-control ng-invalid form-control-lg"                                        required  />                                    
+                                        <div [hidden]="usercontact.email !=''" class=" alert alert-danger">
+                                            Email is required</div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+</section>

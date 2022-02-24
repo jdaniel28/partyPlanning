@@ -5,117 +5,108 @@
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Schedule</h3>
-                           <form #f="ngForm" (ngSubmit)="f.form.valid && onFormVenueSubmit()">
+                        <form #f="ngForm" (ngSubmit)="f.form.valid && onFormVenueSubmit()">
 
-                                  <div class="row">
-                                      <div class="col-md-6 mb-4">
+                            <div class="row">
+                                <div class="col-md-12 mb-4">
 
-                                            <div class="form-outline">
-                                             <label class="form-label" for="venueId" required>Venue Id</label>
-                                             <span class="redStar">*</span>
-                                             <input type="text" name="venueId" id="venueId" [(ngModel)]="schedule.venueId"
-                                              class="form-control ng-invalid form-control-lg" required />
-                                              <div [hidden]="schedule.venueId !=''" class="alert alert-danger">
-                                                 Venue Id is required
-                                              </div>
+                                    <div class="form-outline">
+                                        <label class="form-label" for="venueId" required>Venue Id</label>
+                                        <span class="redStar">*</span>
+                                        <select #venueId="ngModel" name="venueId" id="venueId"
+                                            [(ngModel)]="schedule.venueId"
+                                            class="form-control ng-invalid form-control-lg" required>
+                                            <option *ngFor="let venue of venues; let i = index">{{venue.venueId}}
+                                            </option>
+                                            <div class="alert alert-danger">
+                                                Venue Id is required
                                             </div>
-                                       </div>
-                                       <div class="col-md-6 mb-4">
-                                          <div class="form-outline">
-                                               <label class="form-label" for="scheduleId" required>Schedule Id</label>
-                                               <span class="redStar">*</span>
-                                               <input type="text" name="scheduleId" id="scheduleId"
-                                                  [(ngModel)]="schedule.scheduleId"
-                                                  class="form-control ng-invalid form-control-lg" required />
-                                                   <div [hidden]="schedule.scheduleId !=''" class="alert alert-danger">
-                                                      Schedule Id is required
-                                                   </div>
-                                                </div>
+                                        </select>
 
-                                            </div>
-                                       </div>
-                            
-
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4 d-flex align-items-center">
-                                            <div class="form-outline datepicker w-100">
-                                                <label for="startDate"class="form-label">Start Date</label>
-                                                    <span class="redStar">*</span>
-                                                        <input type="date"name="startDate"[(ngModel)]="schedule.startDate"
-                                                            class="form-control form-control-lg" id="startDate"
-                                                            required />
-                                                            <div [hidden]="schedule.startDate !=''" class=" alert alert-danger">
-                                                                Start Date is required
-                                                            </div>
-                                             </div>
-                                          </div>              
-                                          <div class="col-md-6 mb-4 d-flex align-items-center">
-                                            <div class="form-outline datepicker w-100">
-                                                <label for="endDate"class="form-label">End Date</label>
-                                                    <span class="redStar">*</span>
-                                                        <input type="date"name="endDate"[(ngModel)]="schedule.endDate"
-                                                            class="form-control form-control-lg" id="endDate"
-                                                            required />
-                                                        <div [hidden]="schedule.endDate !=''"class=" alert alert-danger">
-                                                           End Date is required
+                                    </div>
                                 </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <div class="form-outline datepicker w-100">
+                                        <label for="startDate" class="form-label">Start Date</label>
+                                        <span class="redStar">*</span>
+                                        <input type="date" name="startDate" [(ngModel)]="schedule.startDate"
+                                            class="form-control form-control-lg" id="startDate" required />
+                                        <div [hidden]="schedule.startDate !=''" class=" alert alert-danger">
+                                            Start Date is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <div class="form-outline datepicker w-100">
+                                        <label for="endDate" class="form-label">End Date</label>
+                                        <span class="redStar">*</span>
+                                        <input type="date" name="endDate" [(ngModel)]="schedule.endDate"
+                                            class="form-control form-control-lg" id="endDate" required />
+                                        <div [hidden]="schedule.endDate !=''" class=" alert alert-danger">
+                                            End Date is required
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                    </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-4 pb-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
 
-                        <div class="form-outline">
-                            <label class="form-label" for="facilities">Facilities Available</label>
-                            <span class="redStar">*</span>
-                            <input name="facilities" [(ngModel)]="schedule.facilities" type="text" id="facilities"
-                                class="form-control form-control-lg" required />
-                            <div [hidden]="schedule.facilities !=''" class="alert alert-danger">
-                                Facilities are required
+                                    <div class="form-outline">
+                                        <label class="form-label" for="facilities">Facilities Available</label>
+                                        <span class="redStar">*</span>
+                                        <input name="facilities" [(ngModel)]="schedule.facilities" type="text"
+                                            id="facilities" class="form-control form-control-lg" required />
+                                        <div [hidden]="schedule.facilities !=''" class="alert alert-danger">
+                                            Facilities are required
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="maxCapacity">Maximum Capacity </label>
+                                        <span class="redStar">*</span>
+                                        <input name="maxCapacity" [(ngModel)]="schedule.maxCapacity" type="text"
+                                            id="maxCapacity" class="form-control form-control-lg" required />
+                                        <div [hidden]="schedule.maxCapacity !=''" class="alert alert-danger">
+                                            Max Capacity is required
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
-                        </div>
 
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
 
-                        <div class="form-outline">
-                            <label class="form-label" for="maxCapacity">Maximum Capacity </label>
-                            <span class="redStar">*</span>
-                            <input name="maxCapacity" [(ngModel)]="schedule.maxCapacity" type="text" id="maxCapacity"
-                                class="form-control form-control-lg" required />
-                            <div [hidden]="schedule.maxCapacity !=''" class="alert alert-danger">
-                                Max Capacity is required
+                                    <div class="form-outline">
+                                        <label class="form-label" for="price">Price</label>
+                                        <span class="redStar">*</span>
+                                        <input name="price" [(ngModel)]="schedule.price" type="text" id="price"
+                                            class="form-control form-control-lg" required />
+                                        <div [hidden]="schedule.price !=''" class="alert alert-danger">
+                                            Price is required
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 mb-4 pb-2">
-
-                        <div class="form-outline">
-                            <label class="form-label" for="price">Price</label>
-                            <span class="redStar">*</span>
-                            <input name="price" [(ngModel)]="schedule.price" type="text" id="price"
-                                class="form-control form-control-lg" required />
-                            <div [hidden]="schedule.price !=''" class="alert alert-danger">
-                                Price is required
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
                             </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
-
-                <div class="mt-4 pt-2">
-                    <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-                </div>
-                </form>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 </section>
