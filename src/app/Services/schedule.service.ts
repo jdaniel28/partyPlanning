@@ -27,14 +27,15 @@ export class ScheduleService {
     return this.http.get<VenueSchedule[]>(this.root_url + "VenueSchedules")
   }
 
-  getAllVenueSchedulesByDate(startDate: Date, endDate: Date) {
+
+
+  getSchedulesByDate(endDate: string) {
     const headers = { 'content-type': 'application/json' }
     const request = {
-      startDate: startDate,
       endDate: endDate
     }
     const body = JSON.stringify(request);
-    this.http.post<VenueSchedule[]>(this.root_url + "VenueSchedule", body, { 'headers': headers });
+    return this.http.post<VenueSchedule[]>(this.root_url + "schedulesByDate", body, { 'headers': headers });
   }
 
 }

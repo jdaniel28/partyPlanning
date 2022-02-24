@@ -24,10 +24,10 @@
                     <a routerLink="viewVenue" (click)="isShown = false" class="nav-link">View Venues</a>
                 </li>
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Add Feedback</a>
+                    <a routerLink="displayFeedback" (click)="isShown = false" class="nav-link">View Feedback</a>
                 </li>
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">View Booking</a>
+                    <a routerLink="viewBookings" (click)="isShown = false" class="nav-link">View Booking</a>
                 </li>
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="displaySchedule" (click)="isShown = false" class="nav-link">View Schedule</a>
@@ -57,14 +57,15 @@
                 <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="userSchedule" (click)="isShown = false" class="nav-link">View Schedules</a>
                 </li>
-                <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
-                    <a routerLink="userInvite" (click)="isShown = false" class="nav-link">View Invite</a>
-                </li>
+
                 <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="displayUserContacts" (click)="isShown = false" class="nav-link">View Contacts</a>
                 </li>
                 <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="userContacts" (click)="isShown = false" class="nav-link">Add Contact</a>
+                </li>
+                <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
+                    <a routerLink="displayInvitees" (click)="isShown = false" class="nav-link">View Invitees</a>
                 </li>
                 <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="help" (click)="isShown = false" class="nav-link">Help</a>

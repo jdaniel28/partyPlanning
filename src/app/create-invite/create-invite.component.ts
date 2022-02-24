@@ -14,7 +14,7 @@ export class CreateInviteComponent implements OnInit {
   selectedFile: any;
   photoSrc = "../../assets/blank_profile.png";
   invite: Invite = {
-    inviteId: 0,
+    greetingId: 0,
     photoName: '',
     inviteText: ''
   }

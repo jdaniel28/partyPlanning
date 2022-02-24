@@ -9,9 +9,25 @@
                             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Schedule</h3>
                             <hr>
                             <div class="container">
-                                <table class="table table-hover table-success table-striped">
+                                <form #f="ngForm">
+                                    <div class="row">
 
-                                    <thead class="thead-dark">
+                                        <div class="col-lg-6">
+                                            <label for="endDate" class="form-label">Date </label>
+                                            <input name="endDate" [(ngModel)]="schedule.endDate" class="form-control"
+                                                type="date">
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <button (click)="onSubmit()" name="submit"
+                                                class="btn btn-primary buttonAlign">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br>
+                                <table class="table table-hover  table-striped">
+
+                                    <thead class="thead-dark table-success">
 
                                         <tr scope="row">
                                             <th scope="col">#</th>
@@ -22,7 +38,7 @@
                                             <th scope="col">Facilities Available</th>
                                             <th scope="col">Max Capacity</th>
                                             <th scope="col">Price</th>
-
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
 
@@ -37,8 +53,7 @@
                                         <td> &#8377; {{ schedule.price }}</td>
                                         <td>
 
-                                            <button class="btn btn-lg btn-outline-primary"
-                                                (click)="index = i;open(content)">
+                                            <button class="btn  btn-outline-success" (click)="index = i;open(content)">
                                                 More Info
                                             </button>
 

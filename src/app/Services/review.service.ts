@@ -7,17 +7,21 @@ import { Review } from '../Types/Review';
 })
 export class ReviewService {
 
-  
+
   root_url = "http://localhost:9090/";
 
   constructor(private http: HttpClient) { }
 
 
 
-  postReview(review : Review) {
+  postReview(review: Review) {
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(review);
     return this.http.post<Review>(this.root_url + "UserFeedback", body, { 'headers': headers, 'observe': 'response' });
+  }
+
+  getAllReviews() {
+    return this.http.get<Review[]>(this.root_url + "getFeedback");
   }
 
 }

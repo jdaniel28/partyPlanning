@@ -6,6 +6,7 @@ import { VenueService } from '../Services/venue.service';
 import { Booking } from '../Types/Booking';
 import { UtilService } from '../Services/util.service';
 import { VenueSchedule } from '../Types/VenueSchedule';
+import { Schedule } from '../Types/Schedule';
 
 @Component({
   selector: 'app-user-schedule',
@@ -15,6 +16,15 @@ import { VenueSchedule } from '../Types/VenueSchedule';
 export class UserScheduleComponent implements OnInit {
 
   venueSchedules: VenueSchedule[] = [];
+  schedule: Schedule = {
+    venueId: '',
+    scheduleId: '',
+    startDate: '',
+    endDate: '',
+    facilities: '',
+    maxCapacity: '',
+    price: ''
+  }
   index !: number;
 
   closeResult = '';
@@ -61,9 +71,18 @@ export class UserScheduleComponent implements OnInit {
     this.booking.scheduleId = this.venueSchedules[index].scheduleId;
     this.booking.userId = this.utilService.readLocalStorageUserId() as string;
     this.bookingService.bookSchedule(this.booking).subscribe(data => {
+      this.booking.bookingId = data.bookingId;
+      sessionStorage.setItem('bookingId', this.booking.bookingId.toString())
       alert("Booked! Thank you 😊")
+      window.location.href = "/userInvite"
     }, error => {
       alert("Something went wrong")
+    })
+  }
+
+  onSubmit() {
+    this.scheduleService.getSchedulesByDate(this.schedule.endDate).subscribe(data => {
+      this.venueSchedules = data
     })
   }
 

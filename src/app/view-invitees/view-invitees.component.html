@@ -1,0 +1,41 @@
+<section class="vh-50 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Contact List</h3>
+                        <hr>
+                        <div class="container">
+                            <table class="table table-hover table-striped">
+                                <thead class="thead-dark  table-success">
+                                    <tr scope="row">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Greeting Photo</th>
+                                        <th scope="col">Greeting Text</th>
+                                        <th scope="col">Booking Id</th>
+                                        <th scope="col">Contact Id</th>
+                                        <th scope="col">Name</th>
+                                    </tr>
+                                </thead>
+                                <tr scope="row" *ngFor="let invitee of inviteeDetails;let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td><img [src]="invitee.photoName" class="photoAlign"></td>
+                                    <td>{{ invitee.inviteText }}</td>
+                                    <td>{{ invitee.bookingId }}</td>
+                                    <td>{{ invitee.contactId }}</td>
+                                    <td>{{ invitee.name}}</td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+</section>

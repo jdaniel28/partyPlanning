@@ -1,0 +1,43 @@
+<section class="vh-50 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Contact List</h3>
+                        <hr>
+                        <div class="container">
+                            <table class="table table-hover table-success table-striped">
+
+                                <thead class="thead-dark">
+
+                                    <tr scope="row">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">Email ID</th>
+                                        <th scope="col">Invite</th>
+                                    </tr>
+                                </thead>
+
+                                <tr scope="row" *ngFor="let contact of userContact;let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{ contact.name }}</td>
+                                    <td>{{ contact.contactNumber }}</td>
+                                    <td>{{ contact.email }}</td>
+                                    <td><button (click)="onInvite(i)">Invite</button></td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+                        <button class="btn btn-primary" (click)="onFinish()">Finish</button>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
+</section>

@@ -23,7 +23,8 @@ export class UserInviteComponent implements OnInit {
   }
 
   onInviteSelect(index: number) {
-    console.log(this.invites[index])
+    sessionStorage.setItem('greetingId', this.invites[index].greetingId.toString())
+    window.location.href = "inviteContacts"
   }
 
 }

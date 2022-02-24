@@ -26,6 +26,10 @@ import { DiaplayUsercontactlistComponent } from './diaplay-usercontactlist/diapl
 import { UserContactlistComponent } from './user-contactlist/user-contactlist.component';
 import { HelpComponent } from './help/help.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InviteContactListComponent } from './invite-contact-list/invite-contact-list.component';
+import { ViewBookingComponent } from './view-booking/view-booking.component';
+import { DisplayFeedbackComponent } from './display-feedback/display-feedback.component';
+import { ViewInviteesComponent } from './view-invitees/view-invitees.component';
 
 
 @NgModule({
@@ -47,7 +51,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReviewComponent,
     DiaplayUsercontactlistComponent,
     UserContactlistComponent,
-    HelpComponent
+    HelpComponent,
+    InviteContactListComponent,
+    ViewBookingComponent,
+    DisplayFeedbackComponent,
+    ViewInviteesComponent
   ],
   imports: [
     BrowserModule,

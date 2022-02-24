@@ -13,9 +13,9 @@ export class ReviewComponent implements OnInit {
 
 
   review: Review = {
-    feedbackId:"",
-    userId:"",
-    venueId:"",
+    feedbackId: "",
+    userId: "",
+    bookingId: 0,
     ans1: "",
     ans2: "",
     ans3: "",
@@ -29,6 +29,10 @@ export class ReviewComponent implements OnInit {
 
   onFormReviewSubmit() {
     console.log(this.review)
+    const bookingId = parseInt(sessionStorage.getItem('bookingId') as string)
+    const userId = localStorage.getItem('partyUser') as string;
+    this.review.bookingId = bookingId
+    this.review.userId = userId
     this.reviewService.postReview(this.review).subscribe(data => {
       data = data;
       console.log(data);
@@ -38,7 +42,7 @@ export class ReviewComponent implements OnInit {
     });
   }
 
-      
-  
+
+
 
 }

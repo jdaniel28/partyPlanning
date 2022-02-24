@@ -1,5 +1,5 @@
 export interface Invite {
-    inviteId: number,
+    greetingId: number,
     photoName: string,
     inviteText: string
 }
