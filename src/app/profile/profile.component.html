@@ -29,9 +29,10 @@
                                         <label class="form-label" for="firstName" required>First Name</label>
                                         <span class="redStar">*</span>
                                         <input type="text" pattern="[a-zA-Z ]*" name="firstName" id="firstName"
-                                            [(ngModel)]="user.firstName" class="form-control ng-invalid form-control-lg"
-                                            required />
-                                        <div [hidden]="user.firstName !=''" class="alert alert-danger">
+                                            #firstName="ngModel" [(ngModel)]="user.firstName"
+                                            class="form-control ng-invalid form-control-lg" required />
+                                        <div *ngIf="firstName.invalid && f.submitted" [hidden]="user.firstName !=''"
+                                            class="alert alert-danger">
                                             First Name is required
                                         </div>
                                     </div>
@@ -44,8 +45,10 @@
                                             Name</label>
                                         <span class="redStar">*</span>
                                         <input type="text" pattern="[a-zA-Z ]*" id="lastName" name="lastName"
-                                            [(ngModel)]="user.lastName" class="form-control form-control-lg" required />
-                                        <div [hidden]="user.lastName !=''" class="alert alert-danger">
+                                            #lastName="ngModel" [(ngModel)]="user.lastName"
+                                            class="form-control form-control-lg" required />
+                                        <div *ngIf="lastName.invalid && f.submitted" [hidden]="user.lastName !=''"
+                                            class="alert alert-danger">
                                             Last Name is required
                                         </div>
                                     </div>
@@ -59,9 +62,10 @@
                                     <div class="form-outline datepicker w-100">
                                         <label for="birthdayDate" class="form-label">Date of Birth</label>
                                         <span class="redStar">*</span>
-                                        <input type="date" name="dob" [(ngModel)]="user.dob"
+                                        <input type="date" name="dob" [(ngModel)]="user.dob" #dob="ngModel"
                                             class="form-control form-control-lg" id="birthdayDate" required />
-                                        <div [hidden]="user.dob !=''" class="alert alert-danger">
+                                        <div *ngIf="dob.invalid && f.submitted" [hidden]="user.dob !=''"
+                                            class="alert alert-danger">
                                             Date of Birth is required
                                         </div>
                                     </div>
@@ -74,7 +78,7 @@
 
                                     <div class="form-check form-check-inline">
                                         <input [(ngModel)]="user.gender" class="form-check-input" type="radio"
-                                            name="gender" id="femaleGender" value="female" checked />
+                                            name="gender" id="femaleGender" value="female" #gender="ngModel" checked />
                                         <label class="form-check-label" for="femaleGender">Female</label>
                                     </div>
 
@@ -89,7 +93,8 @@
                                             name="gender" id="otherGender" value="other" />
                                         <label class="form-check-label" for="otherGender">Other</label>
                                     </div>
-                                    <div [hidden]="user.gender !=''" class="alert alert-danger">
+                                    <div *ngIf="gender.invalid && f.submitted" [hidden]="user.gender !=''"
+                                        class="alert alert-danger">
                                         Gender is required
                                     </div>
 
@@ -104,8 +109,10 @@
                                         <label class="form-label" for="phoneNumber">Contact Number</label>
                                         <span class="redStar">*</span>
                                         <input name="contactNumber" pattern="[0-9]*" [(ngModel)]="user.contactNumber"
-                                            type="tel" id="phoneNumber" class="form-control form-control-lg" required />
-                                        <div [hidden]="user.contactNumber !=''" class="alert alert-danger">
+                                            #phoneNumber="ngModel" type="tel" id="phoneNumber"
+                                            class="form-control form-control-lg" required />
+                                        <div *ngIf="phoneNumber.invalid && f.submitted"
+                                            [hidden]="user.contactNumber !=''" class="alert alert-danger">
                                             Contact Number is required
                                         </div>
                                     </div>

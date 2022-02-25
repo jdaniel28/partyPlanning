@@ -1,0 +1,6 @@
+#imgbg{
+    background-image: url('../../assets/website_background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 250px;
+}

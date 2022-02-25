@@ -14,9 +14,10 @@
                                         <label class="form-label" for="firstName" required>First Name</label>
                                         <span class="redStar">*</span>
                                         <input type="text" pattern="[a-zA-Z ]*" name="firstName" id="firstName"
-                                            [(ngModel)]="user.firstName" class="form-control ng-invalid form-control-lg"
-                                            required />
-                                        <div [hidden]="user.firstName !=''" class="alert alert-danger">
+                                            #firstName="ngModel" [(ngModel)]="user.firstName"
+                                            class="form-control ng-invalid form-control-lg" required />
+                                        <div *ngIf="firstName.invalid && f.submitted" [hidden]="user.firstName !=''"
+                                            class="alert alert-danger">
                                             First Name is required
                                         </div>
                                     </div>
@@ -29,8 +30,10 @@
                                             Name</label>
                                         <span class="redStar">*</span>
                                         <input type="text" pattern="[a-zA-Z ]*" id="lastName" name="lastName"
-                                            [(ngModel)]="user.lastName" class="form-control form-control-lg" required />
-                                        <div [hidden]="user.lastName !=''" class="alert alert-danger">
+                                            #lastName="ngModel" [(ngModel)]="user.lastName"
+                                            class="form-control form-control-lg" required />
+                                        <div *ngIf="lastName.invalid && f.submitted" [hidden]="user.lastName !=''"
+                                            class="alert alert-danger">
                                             Last Name is required
                                         </div>
                                     </div>
@@ -44,9 +47,10 @@
                                     <div class="form-outline datepicker w-100">
                                         <label for="birthdayDate" class="form-label">Date of Birth</label>
                                         <span class="redStar">*</span>
-                                        <input type="date" name="dob" [(ngModel)]="user.dob"
+                                        <input type="date" name="dob" [(ngModel)]="user.dob" #dob="ngModel"
                                             class="form-control form-control-lg" id="birthdayDate" required />
-                                        <div [hidden]="user.dob !=''" class="alert alert-danger">
+                                        <div *ngIf="dob.invalid && f.submitted" [hidden]="user.dob !=''"
+                                            class="alert alert-danger">
                                             Date of Birth is required
                                         </div>
                                     </div>
@@ -59,7 +63,7 @@
 
                                     <div class="form-check form-check-inline">
                                         <input [(ngModel)]="user.gender" class="form-check-input" type="radio"
-                                            name="gender" id="femaleGender" value="female" checked />
+                                            #gender="ngModel" name="gender" id="femaleGender" value="female" checked />
                                         <label class="form-check-label" for="femaleGender">Female</label>
                                     </div>
 
@@ -74,7 +78,8 @@
                                             name="gender" id="otherGender" value="other" />
                                         <label class="form-check-label" for="otherGender">Other</label>
                                     </div>
-                                    <div [hidden]="user.gender !=''" class="alert alert-danger">
+                                    <div *ngIf="gender.invalid && f.submitted" [hidden]="user.gender !=''"
+                                        class="alert alert-danger">
                                         Gender is required
                                     </div>
 
@@ -88,8 +93,9 @@
                                         <label class="form-label" for="userId">User ID</label>
                                         <span class="redStar">*</span>
                                         <input name="userId" [(ngModel)]="user.userId" type="text" id="userId"
-                                            class="form-control form-control-lg" required />
-                                        <div [hidden]="user.userId !=''" class="alert alert-danger">
+                                            #userId="ngModel" class="form-control form-control-lg" required />
+                                        <div *ngIf="userId.invalid && f.submitted" [hidden]="user.userId !=''"
+                                            class="alert alert-danger">
                                             UserID is required
                                         </div>
                                     </div>
@@ -101,8 +107,10 @@
                                         <label class="form-label" for="phoneNumber">Contact Number</label>
                                         <span class="redStar">*</span>
                                         <input name="contactNumber" pattern="[0-9]*" [(ngModel)]="user.contactNumber"
-                                            type="tel" id="phoneNumber" class="form-control form-control-lg" required />
-                                        <div [hidden]="user.contactNumber !=''" class="alert alert-danger">
+                                            #contactNumber="ngModel" type="tel" id="phoneNumber"
+                                            class="form-control form-control-lg" required />
+                                        <div *ngIf="contactNumber.invalid && f.submitted"
+                                            [hidden]="user.contactNumber !=''" class="alert alert-danger">
                                             Contact Number is required
                                         </div>
                                     </div>
@@ -117,8 +125,9 @@
                                         <label class="form-label" for="password">Password</label>
                                         <span class="redStar">*</span>
                                         <input name="password" [(ngModel)]="user.password" type="password" id="password"
-                                            class="form-control form-control-lg" required />
-                                        <div [hidden]="user.password !=''" class="alert alert-danger">
+                                            #password="ngModel" class="form-control form-control-lg" required />
+                                        <div *ngIf="password.invalid && f.submitted" [hidden]="user.password !=''"
+                                            class="alert alert-danger">
                                             Password is required
                                         </div>
                                     </div>
@@ -130,9 +139,10 @@
                                         <label class="form-label" for="confirmPassword">Confirm Password</label>
                                         <span class="redStar">*</span>
                                         <input type="password" name="confirmPassword" id="confirmPassword"
-                                            class="form-control form-control-lg" [(ngModel)]="confirmPassword"
-                                            required />
-                                        <div [hidden]="confirmPassword !=''" class="alert alert-danger">
+                                            #confirmPasswordText="ngModel" class="form-control form-control-lg"
+                                            [(ngModel)]="confirmPassword" required />
+                                        <div *ngIf="confirmPasswordText.invalid && f.submitted"
+                                            [hidden]="confirmPassword !=''" class="alert alert-danger">
                                             Confirm Password is required
                                         </div>
                                     </div>
@@ -143,9 +153,10 @@
                                     <div class="col-lg-12">
                                         <label class="form-label">What is your nickname?<span
                                                 class="redStar">*</span></label>
-                                        <input name="ans1" required [(ngModel)]="user.ans1" type="text"
+                                        <input name="ans1" required [(ngModel)]="user.ans1" type="text" #ans1="ngModel"
                                             class="form-control">
-                                        <div [hidden]="user.ans1 !=''" class="alert alert-danger">
+                                        <div *ngIf="ans1.invalid && f.submitted" [hidden]="user.ans1 !=''"
+                                            class="alert alert-danger">
                                             Answer is required
                                         </div>
                                     </div>
@@ -153,18 +164,20 @@
                                     <div class="col-lg-12">
                                         <label class="form-label">What is your favourite colour?<span
                                                 class="redStar">*</span></label>
-                                        <input name="ans2" required [(ngModel)]="user.ans2" type="text"
+                                        <input name="ans2" required [(ngModel)]="user.ans2" type="text" #ans2="ngModel"
                                             class="form-control">
-                                        <div [hidden]="user.ans2 !=''" class="alert alert-danger">
+                                        <div *ngIf="ans2.invalid && f.submitted" [hidden]="user.ans2 !=''"
+                                            class="alert alert-danger">
                                             Answer is required
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <label class="form-label">Who is your favourite actor/actress?<span
                                                 class="redStar">*</span></label>
-                                        <input name="ans3" required [(ngModel)]="user.ans3" type="text"
+                                        <input name="ans3" required [(ngModel)]="user.ans3" type="text" #ans3="ngModel"
                                             class="form-control">
-                                        <div [hidden]="user.ans3 !=''" class="alert alert-danger">
+                                        <div *ngIf="ans3.invalid && f.submitted" [hidden]="user.ans3 !=''"
+                                            class="alert alert-danger">
                                             Answer is required
                                         </div>
                                     </div>

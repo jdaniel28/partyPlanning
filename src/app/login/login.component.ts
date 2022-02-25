@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
       alert("Logged In")
       localStorage.setItem('partyUser', this.user.userId)
       localStorage.setItem('partyRole', data.role)
-      window.location.href = "/signUp"
+      window.location.href = "/dashboard"
     }, error => {
       if (error.error.role == "Password") {
         alert("Password is incorrect")

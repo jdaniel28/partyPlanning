@@ -35,8 +35,10 @@
                                         <label for="startDate" class="form-label">Start Date</label>
                                         <span class="redStar">*</span>
                                         <input type="date" name="startDate" [(ngModel)]="schedule.startDate"
-                                            class="form-control form-control-lg" id="startDate" required />
-                                        <div [hidden]="schedule.startDate !=''" class=" alert alert-danger">
+                                            #startDate="ngModel" class="form-control form-control-lg" id="startDate"
+                                            required />
+                                        <div *ngIf="f.submitted && startDate.invalid" [hidden]="schedule.startDate !=''"
+                                            class=" alert alert-danger">
                                             Start Date is required
                                         </div>
                                     </div>
@@ -46,8 +48,10 @@
                                         <label for="endDate" class="form-label">End Date</label>
                                         <span class="redStar">*</span>
                                         <input type="date" name="endDate" [(ngModel)]="schedule.endDate"
-                                            class="form-control form-control-lg" id="endDate" required />
-                                        <div [hidden]="schedule.endDate !=''" class=" alert alert-danger">
+                                            #endDate="ngModel" class="form-control form-control-lg" id="endDate"
+                                            required />
+                                        <div *ngIf="f.submitted && endDate.invalid" [hidden]="schedule.endDate !=''"
+                                            class=" alert alert-danger">
                                             End Date is required
                                         </div>
                                     </div>
@@ -61,8 +65,10 @@
                                         <label class="form-label" for="facilities">Facilities Available</label>
                                         <span class="redStar">*</span>
                                         <input name="facilities" [(ngModel)]="schedule.facilities" type="text"
-                                            id="facilities" class="form-control form-control-lg" required />
-                                        <div [hidden]="schedule.facilities !=''" class="alert alert-danger">
+                                            #facilities="ngModel" id="facilities" class="form-control form-control-lg"
+                                            required />
+                                        <div *ngIf="f.submitted && facilities.invalid"
+                                            [hidden]="schedule.facilities !=''" class="alert alert-danger">
                                             Facilities are required
                                         </div>
                                     </div>
@@ -74,8 +80,10 @@
                                         <label class="form-label" for="maxCapacity">Maximum Capacity </label>
                                         <span class="redStar">*</span>
                                         <input name="maxCapacity" [(ngModel)]="schedule.maxCapacity" type="text"
-                                            id="maxCapacity" class="form-control form-control-lg" required />
-                                        <div [hidden]="schedule.maxCapacity !=''" class="alert alert-danger">
+                                            #maxCapacity="ngModel" id="maxCapacity" class="form-control form-control-lg"
+                                            required />
+                                        <div *ngIf="f.submitted && maxCapacity.invalid"
+                                            [hidden]="schedule.maxCapacity !=''" class="alert alert-danger">
                                             Max Capacity is required
                                         </div>
                                     </div>
@@ -91,8 +99,9 @@
                                         <label class="form-label" for="price">Price</label>
                                         <span class="redStar">*</span>
                                         <input name="price" [(ngModel)]="schedule.price" type="text" id="price"
-                                            class="form-control form-control-lg" required />
-                                        <div [hidden]="schedule.price !=''" class="alert alert-danger">
+                                            #price="ngModel" class="form-control form-control-lg" required />
+                                        <div *ngIf="f.submitted && price.invalid" [hidden]="schedule.price !=''"
+                                            class="alert alert-danger">
                                             Price is required
                                         </div>
                                     </div>

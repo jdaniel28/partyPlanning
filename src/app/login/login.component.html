@@ -35,9 +35,10 @@
                                             <label class="form-label" for="password" required>Password</label>
                                             <span class="redStar">*</span>
                                             <input type="password" name="password" id="password"
-                                                [(ngModel)]="user.password"
+                                                [(ngModel)]="user.password" #password="ngModel"
                                                 class="form-control ng-invalid form-control-lg" required />
-                                            <div [hidden]="user.password !='' " class="alert alert-danger">
+                                            <div *ngIf="password.invalid && f.submitted" [hidden]="user.password !='' "
+                                                class="alert alert-danger">
                                                 Password is required
                                             </div>
                                         </div>

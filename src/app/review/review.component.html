@@ -15,26 +15,29 @@
 
                                 <div class="col-lg-12">
                                     <label class="form-label">{{reviewQns.ques1}}<span class="redStar">*</span></label>
-                                    <input name="ans1" required [(ngModel)]="review.ans1" type="text"
+                                    <input name="ans1" required [(ngModel)]="review.ans1" type="text" #ans1="ngModel"
                                         class="form-control">
-                                    <div [hidden]="review.ans1 !=''" class="alert alert-danger">
+                                    <div *ngIf="ans1.invalid && f.submitted" [hidden]="review.ans1 !=''"
+                                        class="alert alert-danger">
                                         Answer is required
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <label class="form-label">{{reviewQns.ques2}}<span class="redStar">*</span></label>
-                                    <input name="ans2" required [(ngModel)]="review.ans2" type="text"
+                                    <input name="ans2" required [(ngModel)]="review.ans2" type="text" #ans2="ngModel"
                                         class="form-control">
-                                    <div [hidden]="review.ans2 !=''" class="alert alert-danger">
+                                    <div *ngIf="ans2.invalid && f.submitted" [hidden]="review.ans2 !=''"
+                                        class="alert alert-danger">
                                         Answer is required
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <label class="form-label">{{reviewQns.ques3}}<span class="redStar">*</span></label>
-                                    <input name="ans3" required [(ngModel)]="review.ans3" type="text"
+                                    <input name="ans3" required [(ngModel)]="review.ans3" type="text" #ans3="ngModel"
                                         class="form-control">
-                                    <div [hidden]="review.ans3 !=''" class="alert alert-danger">
+                                    <div *ngIf="ans3.invalid && f.submitted" [hidden]="review.ans3 !=''"
+                                        class="alert alert-danger">
                                         Answer is required
                                     </div>
                                 </div>
@@ -44,8 +47,10 @@
                             <p>Rating:</p>
                             <p>😠 😦 😑 😀 😍</p>
                             <div class="rangeClass">
-                                <input type="range" min="1" max="5" name="rating" required [(ngModel)]="review.rating">
-                                <div [hidden]="review.rating !=''" class="alert alert-danger">
+                                <input #rating="ngModel" type="range" min="1" max="5" name="rating" required
+                                    [(ngModel)]="review.rating">
+                                <div *ngIf="rating.invalid && f.submitted" [hidden]="review.rating !=''"
+                                    class="alert alert-danger">
                                     Rating is required
                                 </div>
                             </div>

@@ -31,6 +31,7 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
 import { DisplayFeedbackComponent } from './display-feedback/display-feedback.component';
 import { ViewInviteesComponent } from './view-invitees/view-invitees.component';
 import { AddFeedbackQuestionsComponent } from './add-feedback-questions/add-feedback-questions.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { AddFeedbackQuestionsComponent } from './add-feedback-questions/add-feed
     DisplayFeedbackComponent,
     ViewInviteesComponent,
     AddFeedbackQuestionsComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

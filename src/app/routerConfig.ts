@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AddFeedbackQuestionsComponent } from './add-feedback-questions/add-feedback-questions.component';
 import { ApproveBookingComponent } from './approve-booking/approve-booking.component';
 import { CreateInviteComponent } from './create-invite/create-invite.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { DiaplayUsercontactlistComponent } from './diaplay-usercontactlist/diaplay-usercontactlist.component';
 import { DisplayFeedbackComponent } from './display-feedback/display-feedback.component';
 import { DisplayScheduleComponent } from './display-schedule/display-schedule.component';
@@ -23,7 +24,7 @@ import { ViewInviteesComponent } from './view-invitees/view-invitees.component';
 
 
 export const appRoutes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'signUp', component: SignUpComponent },
     { path: 'login', component: LoginComponent },
     { path: 'profile', component: ProfileComponent },
@@ -43,5 +44,7 @@ export const appRoutes: Routes = [
     { path: 'viewBookings', component: ViewBookingComponent },
     { path: 'displayFeedback', component: DisplayFeedbackComponent },
     { path: 'displayInvitees', component: ViewInviteesComponent },
-    { path: 'editFeedback', component: AddFeedbackQuestionsComponent }
+    { path: 'editFeedback', component: AddFeedbackQuestionsComponent },
+    { path: 'dashboard', component: DashboardComponent }
+
 ];
