@@ -1,4 +1,8 @@
-export interface Review {
+export interface FeedbackWithQns {
+    qId: number
+    ques1: string
+    ques2: string
+    ques3: string
     feedbackId: string
     userId: string
     bookingId: number
@@ -6,5 +10,4 @@ export interface Review {
     ans2: string
     ans3: string
     rating: string
-    qId: number
 }

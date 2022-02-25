@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewService } from '../Services/review.service';
+import { FeedbackWithQns } from '../Types/FeedbackWithQns';
 import { Review } from '../Types/Review';
 
 @Component({
@@ -9,13 +10,15 @@ import { Review } from '../Types/Review';
 })
 export class DisplayFeedbackComponent implements OnInit {
 
-  reviews: Review[] = [];
+
+  feedback: FeedbackWithQns[] = [];
 
   constructor(private reviewService: ReviewService) { }
 
   ngOnInit(): void {
-    this.reviewService.getAllReviews().subscribe(data => {
-      this.reviews = data;
+
+    this.reviewService.getFeedbackWithQuestions().subscribe(data => {
+      this.feedback = data
     })
   }
 

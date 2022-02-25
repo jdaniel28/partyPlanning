@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AddFeedbackQuestionsComponent } from './add-feedback-questions/add-feedback-questions.component';
 import { ApproveBookingComponent } from './approve-booking/approve-booking.component';
 import { CreateInviteComponent } from './create-invite/create-invite.component';
 import { DiaplayUsercontactlistComponent } from './diaplay-usercontactlist/diaplay-usercontactlist.component';
@@ -41,5 +42,6 @@ export const appRoutes: Routes = [
     { path: 'inviteContacts', component: InviteContactListComponent },
     { path: 'viewBookings', component: ViewBookingComponent },
     { path: 'displayFeedback', component: DisplayFeedbackComponent },
-    { path: 'displayInvitees', component: ViewInviteesComponent }
+    { path: 'displayInvitees', component: ViewInviteesComponent },
+    { path: 'editFeedback', component: AddFeedbackQuestionsComponent }
 ];

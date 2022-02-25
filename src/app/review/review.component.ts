@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../Services/rest.service';
 import { ReviewService } from '../Services/review.service';
+import { FeedbackQuestions } from '../Types/FeedbackQuestion';
 import { Review } from '../Types/Review';
 import { User } from '../Types/User';
 
@@ -11,6 +12,12 @@ import { User } from '../Types/User';
 })
 export class ReviewComponent implements OnInit {
 
+  reviewQns: FeedbackQuestions = {
+    qId: 0,
+    ques1: '',
+    ques2: '',
+    ques3: ''
+  }
 
   review: Review = {
     feedbackId: "",
@@ -20,11 +27,15 @@ export class ReviewComponent implements OnInit {
     ans2: "",
     ans3: "",
     rating: "",
+    qId: 0
   }
 
   constructor(private reviewService: ReviewService) { }
 
   ngOnInit(): void {
+    this.reviewService.getFeedbackQuestions().subscribe(data => {
+      this.reviewQns = data;
+    })
   }
 
   onFormReviewSubmit() {
@@ -33,9 +44,9 @@ export class ReviewComponent implements OnInit {
     const userId = localStorage.getItem('partyUser') as string;
     this.review.bookingId = bookingId
     this.review.userId = userId
+    this.review.qId = this.reviewQns.qId
     this.reviewService.postReview(this.review).subscribe(data => {
       data = data;
-      console.log(data);
       if (data.status === 201) {
         alert("Review added successfully")
       }

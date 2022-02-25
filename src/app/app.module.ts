@@ -30,6 +30,7 @@ import { InviteContactListComponent } from './invite-contact-list/invite-contact
 import { ViewBookingComponent } from './view-booking/view-booking.component';
 import { DisplayFeedbackComponent } from './display-feedback/display-feedback.component';
 import { ViewInviteesComponent } from './view-invitees/view-invitees.component';
+import { AddFeedbackQuestionsComponent } from './add-feedback-questions/add-feedback-questions.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ViewInviteesComponent } from './view-invitees/view-invitees.component';
     InviteContactListComponent,
     ViewBookingComponent,
     DisplayFeedbackComponent,
-    ViewInviteesComponent
+    ViewInviteesComponent,
+    AddFeedbackQuestionsComponent,
   ],
   imports: [
     BrowserModule,

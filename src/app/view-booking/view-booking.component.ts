@@ -52,7 +52,6 @@ export class ViewBookingComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("here")
     this.bookingService.getBookingSchedulesByDate(this.schedule).subscribe(data => {
       this.bookingSchedules = data;
       console.log(this.bookingSchedules)

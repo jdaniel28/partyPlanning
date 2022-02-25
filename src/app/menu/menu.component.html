@@ -27,6 +27,9 @@
                     <a routerLink="displayFeedback" (click)="isShown = false" class="nav-link">View Feedback</a>
                 </li>
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a routerLink="editFeedback" (click)="isShown = false" class="nav-link">Edit Feedback Questions</a>
+                </li>
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="viewBookings" (click)="isShown = false" class="nav-link">View Booking</a>
                 </li>
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
