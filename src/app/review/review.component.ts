@@ -49,6 +49,7 @@ export class ReviewComponent implements OnInit {
       data = data;
       if (data.status === 201) {
         alert("Review added successfully")
+        window.location.href = 'dashboard'
       }
     });
   }

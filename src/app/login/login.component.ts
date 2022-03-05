@@ -12,7 +12,6 @@ import { UtilService } from '../Services/util.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   passwordResetValid = false;
   showModal: boolean = true;
   closeResult = '';

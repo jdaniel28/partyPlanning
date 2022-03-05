@@ -39,7 +39,10 @@
                     <a routerLink="approveBooking" (click)="isShown = false" class="nav-link">Approve Booking</a>
                 </li>
                 <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
-                    <a routerLink="createInvite" (click)="isShown = false" class="nav-link">Create Invite</a>
+                    <a routerLink="editFeedback" (click)="isShown = false" class="nav-link">Edit Feedback</a>
+                </li>
+                <li *ngIf="isLoggedIn && isAdmin" style="color:white;" class="nav-item">
+                    <a routerLink="createInvite" (click)="isShown = false" class="nav-link">Create Invitation</a>
                 </li>
 
 
@@ -70,7 +73,6 @@
                 <li *ngIf="isLoggedIn && !isAdmin" style="color:white;" class="nav-item">
                     <a routerLink="help" (click)="isShown = false" class="nav-link">Help</a>
                 </li>
-
 
 
 

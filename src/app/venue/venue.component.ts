@@ -49,6 +49,8 @@ export class VenueComponent implements OnInit {
         alert("Venue added successfully")
         window.location.href = "/viewVenue"
       }
+    }, error => {
+      alert("Something went wrong")
     });
   }
 

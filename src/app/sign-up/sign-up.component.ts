@@ -30,9 +30,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log(this.user)
     this.restService.postUser(this.user).subscribe(data => {
-      data = data;
       if (data.status === 201) {
         alert("New user created successfully")
         window.location.href = "/login"

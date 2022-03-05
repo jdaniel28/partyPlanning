@@ -94,7 +94,7 @@ export class InviteContactListComponent implements OnInit {
   }
 
   onFinish() {
-    window.location.href = "dashboard"
+    window.location.href = "review"
   }
 
 }
